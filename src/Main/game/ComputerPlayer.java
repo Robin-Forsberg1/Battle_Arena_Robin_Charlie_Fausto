@@ -1,4 +1,5 @@
 package Main.game;
 
-public class ComputerPlayer {
+public class ComputerPlayer extends Player {
+    private Character character;; //Ungefär sådär
 }
