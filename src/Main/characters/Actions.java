@@ -1,4 +1,4 @@
-package characters;
+package Main.characters;
 
 public enum Actions {
 }
