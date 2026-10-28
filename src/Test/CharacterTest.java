@@ -18,9 +18,9 @@ class CharacterTest {
 
     @Test
     void warriorAttacksArcher() {
-        warrior.attack(archer);
+        int damage = warrior.attack(archer);
         System.out.println("Archers HP är nu: "+archer.getHp()+"\n");
-        assertTrue(archer.getHp() <= 95 && archer.getHp() >= 85);
+        assertTrue(damage >=5 && damage <= 15);
     }
 
     @Test
@@ -34,12 +34,14 @@ class CharacterTest {
 
     @Test
     void archerHealsThemselves() {
+
         warrior.attack(archer);
         System.out.println("Archers HP är nu: "+archer.getHp()+"\n");
-        archer.heal(5);
+        int afterDamageHP = archer.getHp();
+        int heal = archer.heal(5);
         System.out.println("Archers HP är nu: "+archer.getHp()+"\n");
 
-        assertTrue(archer.getHp() >0);
+        assertTrue(archer.getHp() == afterDamageHP + heal);
 
     }
 }

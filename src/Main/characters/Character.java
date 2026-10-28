@@ -17,17 +17,19 @@ public abstract class Character implements Moves {
         this.maxDamage = maxDamage;
     }
 
-    public void attack(Character target) {
+    public int attack(Character target) {
         int damage = random.nextInt(minDamage, maxDamage + 1);
         target.takeDamage(damage);
 
         System.out.println(getClass().getSimpleName()
         + " gör " + damage + " skada ");
+        return damage;
     }
 
-    public void heal (int amount) {
+    public int heal (int amount) {
         hp = Math.min(maxHp, hp + amount);
         System.out.println(getClass().getSimpleName() + " helar sig själv med "+ amount);
+        return amount;
     }
 
     public void takeDamage(int damage) {
