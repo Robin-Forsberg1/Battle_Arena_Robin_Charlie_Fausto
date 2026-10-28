@@ -37,6 +37,7 @@ public abstract class Character implements Moves {
     }
 
     public int getHp(){
+        System.out.println(getClass().getSimpleName()+"s HP: "+hp);
         return hp;
     }
 }

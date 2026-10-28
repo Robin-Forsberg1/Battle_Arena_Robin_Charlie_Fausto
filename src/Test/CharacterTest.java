@@ -27,7 +27,8 @@ class CharacterTest {
     void archerLoseHPToZero() {
         while (archer.getHp() > 1) {
             warrior.attack(archer);
-            System.out.println("Archers HP är nu: "+archer.getHp()+"\n");
+            archer.getHp();
+            System.out.println();
         }
         assertTrue(archer.getHp() == 0);
     }
@@ -36,10 +37,9 @@ class CharacterTest {
     void archerHealsThemselves() {
 
         warrior.attack(archer);
-        System.out.println("Archers HP är nu: "+archer.getHp()+"\n");
         int afterDamageHP = archer.getHp();
+        System.out.println();
         int heal = archer.heal(5);
-        System.out.println("Archers HP är nu: "+archer.getHp()+"\n");
 
         assertTrue(archer.getHp() == afterDamageHP + heal);
 
