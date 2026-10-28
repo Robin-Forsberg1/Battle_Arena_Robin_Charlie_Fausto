@@ -6,8 +6,19 @@ public class Warrior extends Character {
         super(100, 5, 15);
     }
 
-    @Override
     public void specialAbility(Character target) {
 
+    }
+
+    @Override
+    public void specialAttack() {
+    }
+
+    @Override
+    public void defend() {
+    }
+
+    @Override
+    public void heal() {
     }
 }

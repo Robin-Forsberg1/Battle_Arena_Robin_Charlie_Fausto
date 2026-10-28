@@ -25,6 +25,10 @@ public abstract class Character implements Moves {
         + " gör " + damage + " skada ");
     }
 
+    public void heal (int amount) {
+        hp = Math.min(maxHp, hp + amount);
+    }
+
     public void takeDamage(int damage) {
         hp = Math.max(0, hp - Math.max(0, damage));
     }

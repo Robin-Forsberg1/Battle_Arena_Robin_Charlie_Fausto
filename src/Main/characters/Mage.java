@@ -9,6 +9,7 @@ public class Mage extends Character {
 
     @Override
     public void specialAbility(Character target) {
-
+        heal(5);
     }
+
 }
