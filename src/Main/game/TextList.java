@@ -1,4 +1,4 @@
-package Main;
+package Main.game;
 
 public enum TextList {
 }
