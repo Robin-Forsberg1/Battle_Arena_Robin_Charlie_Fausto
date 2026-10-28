@@ -31,4 +31,15 @@ class CharacterTest {
         }
         assertTrue(archer.getHp() == 0);
     }
+
+    @Test
+    void archerHealsThemselves() {
+        warrior.attack(archer);
+        System.out.println("Archers HP är nu: "+archer.getHp()+"\n");
+        archer.heal(5);
+        System.out.println("Archers HP är nu: "+archer.getHp()+"\n");
+
+        assertTrue(archer.getHp() >0);
+
+    }
 }

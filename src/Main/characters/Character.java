@@ -27,6 +27,7 @@ public abstract class Character implements Moves {
 
     public void heal (int amount) {
         hp = Math.min(maxHp, hp + amount);
+        System.out.println(getClass().getSimpleName() + " helar sig själv med "+ amount);
     }
 
     public void takeDamage(int damage) {
