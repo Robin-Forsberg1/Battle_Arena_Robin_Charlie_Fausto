@@ -1,7 +1,5 @@
 package Main.characters;
 
-import java.util.Random;
-
 public class Warrior extends Character {
 
     public Warrior() {
@@ -13,17 +11,14 @@ public class Warrior extends Character {
     }
 
     @Override
-    public int attack() {
-        return 0;
+    public void attack() {
     }
 
     @Override
-    public int defend() {
-        return 0;
+    public void defend() {
     }
 
     @Override
-    public int heal() {
-        return 0;
+    public void heal() {
     }
 }

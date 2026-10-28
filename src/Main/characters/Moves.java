@@ -1,7 +1,7 @@
 package Main.characters;
 
 public interface Moves {
-    int attack();
-    int defend();
-    int heal();
+    void attack();
+    void defend();
+    void heal();
 }
