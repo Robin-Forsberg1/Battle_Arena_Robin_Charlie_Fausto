@@ -25,6 +25,9 @@ public abstract class Character implements Moves {
         + " gör " + damage + " skada ");
     }
 
+    public abstract void specialAbility (Character target);
+
+
     public void takeDamage(int damage) {
         hp = Math.max(0, hp - Math.max(0, damage));
     }
