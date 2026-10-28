@@ -7,12 +7,9 @@ public class Mage extends Character {
         super(100,5,15);
     }
 
+    @Override
     public void specialAbility(Character target) {
 
-    }
-
-    @Override
-    public void specialAttack() {
     }
 
     @Override
