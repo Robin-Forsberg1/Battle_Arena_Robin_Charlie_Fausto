@@ -11,4 +11,19 @@ public class Warrior extends Character {
     public void specialAbility(Character target) {
 
     }
+
+    @Override
+    public int attack() {
+        return 0;
+    }
+
+    @Override
+    public int defend() {
+        return 0;
+    }
+
+    @Override
+    public int heal() {
+        return 0;
+    }
 }
