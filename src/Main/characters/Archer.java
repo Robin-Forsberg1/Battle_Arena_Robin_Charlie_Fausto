@@ -11,12 +11,4 @@ public class Archer extends Character  {
     public void specialAbility(Character target) {
 
     }
-
-    @Override
-    public void defend() {
-    }
-
-    @Override
-    public void heal() {
-    }
 }
