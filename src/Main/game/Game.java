@@ -1,11 +1,14 @@
 package Main.game;
 
+import Main.characters.Archer;
+import Main.characters.Warrior;
+
 import java.util.Random;
 
 public class Game {
     //Game starts from Main-class
 
-    //Select Character
+    //Select Fighter
 
     //1st turn
 
@@ -18,18 +21,22 @@ public class Game {
     //The loop/game ends.
 
     public void battle() {
-        int playerHP = 100, cpuHP = 100, damage;
+
+        HumanPlayer me = new HumanPlayer("Fausto",new Warrior());
+        ComputerPlayer it = new ComputerPlayer("Machine", new Archer());
+        Boolean startText = true;
         Random rand = new Random();
-        while(playerHP > 0 && cpuHP > 0) {
-            damage = rand.nextInt(5, 30);
-            playerHP = Math.max(0, playerHP - Math.max(0, damage));
-            System.out.println("Player tog "+ damage+ " skada");
-            damage = rand.nextInt(5, 30);
-            cpuHP = Math.max(0, cpuHP - Math.max(0, damage));
-            System.out.println("CPU tog "+ damage+ " skada");
-            System.out.println("Player HP: "+playerHP+" CPU HP: "+cpuHP+"\n");
+
+        while(me.getFightersHP(startText) > 0 && it.getFightersHP(startText) > 0) {
+            System.out.println();
+            me.chooseMove(it.getFighter());
+            it.chooseMove(me.getFighter());
+            System.out.println();
+            me.getFightersHP(true);
+            it.getFightersHP(true);
+            startText = false;
         }
-        if(playerHP < cpuHP) System.out.println("CPUn vinner!");
-        else System.out.println("Spelaren vinner!");
+        if(me.getFightersHP(false) < it.getFightersHP(false)) System.out.println(it.getMyName() + " vinner!");
+        else System.out.println(me.getMyName() + " vinner!");
     }
 }

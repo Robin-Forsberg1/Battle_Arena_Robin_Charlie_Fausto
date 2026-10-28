@@ -1,6 +1,6 @@
 package Main.characters;
 
-public class Warrior extends Character {
+public class Warrior extends Fighter {
 
     public Warrior() {
         super(100, 5, 15);
@@ -17,7 +17,7 @@ public class Warrior extends Character {
     }
 
     @Override
-    public String specialAbility(Character target) {
+    public String specialAbility(Fighter target) {
         defend();
 
         return "Warrior försvarar sig själv och halverar nästa skada";

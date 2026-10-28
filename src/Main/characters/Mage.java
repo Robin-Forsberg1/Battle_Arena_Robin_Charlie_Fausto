@@ -1,9 +1,9 @@
 package Main.characters;
 
-public class Mage extends Character {
+public class Mage extends Fighter {
 
 
-    public Mage(int maxHp, int minDamage, int maxDamage) {
+    public Mage() {
         super(100,5,15);
     }
 
@@ -18,7 +18,7 @@ public class Mage extends Character {
     }
 
     @Override
-    public String specialAbility(Character target) {
+    public String specialAbility(Fighter target) {
         int healed = heal(10);
         return "Mage läker med " + healed + " HP.";
     }

@@ -2,7 +2,7 @@ package Main.characters;
 
 import java.util.Random;
 
-public abstract class Character implements Moves {
+public abstract class Fighter implements Moves {
     private final int maxHp;
     private int hp;
     private final int minDamage;
@@ -11,7 +11,7 @@ public abstract class Character implements Moves {
 
     private final Random random = new Random();
 
-    public Character(int maxHp, int minDamage, int maxDamage) {
+    public Fighter(int maxHp, int minDamage, int maxDamage) {
         if (maxHp <= 0 || minDamage <= 0 || maxDamage < minDamage) {
             throw new IllegalArgumentException("Ogiltiga karaktärsvärden");
         }
@@ -22,12 +22,12 @@ public abstract class Character implements Moves {
         this.maxDamage = maxDamage;
     }
 
-    public int attack(Character target) {
+    public int attack(Fighter target) {
         int damage = random.nextInt(minDamage, maxDamage + 1);
         int actualDamage = target.takeDamage(damage);
 
         System.out.println(getClass().getSimpleName()
-        + " gör " + actualDamage + " skada ");
+        + " gör " + actualDamage + " skada mot " + target.getClass().getSimpleName());
         return actualDamage;
     }
 
@@ -54,11 +54,12 @@ public abstract class Character implements Moves {
 
         int oldHp = hp;
         hp = Math.min(maxHp, hp + amount);
+        System.out.println(getClass().getSimpleName() + " helar sig själv med " + amount);
         return hp - oldHp;
     }
 
-    public int getHp(){
-        System.out.println(getClass().getSimpleName()+"s HP: "+hp);
+    public int getHp(boolean withText){
+        if (withText) System.out.println(getClass().getSimpleName()+"s HP: "+hp);
         return hp;
     }
 
@@ -80,5 +81,5 @@ public abstract class Character implements Moves {
     public abstract Actions getSpecialAction();
 
     @Override
-    public abstract String specialAbility(Character target);
+    public abstract String specialAbility(Fighter target);
 }

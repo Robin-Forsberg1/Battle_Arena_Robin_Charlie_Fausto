@@ -5,7 +5,7 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CharacterTest {
+class FighterTest {
 
     Warrior warrior;
     Archer archer;
@@ -13,35 +13,35 @@ class CharacterTest {
     @BeforeEach
     void setUp() {
         warrior = new Warrior();
-        archer = new Archer(100, 5, 15);
+        archer = new Archer();
     }
 
     @Test
     void warriorAttacksArcher() {
         int damage = warrior.attack(archer);
-        System.out.println("Archers HP är nu: "+archer.getHp()+"\n");
+        System.out.println("Archers HP är nu: "+archer.getHp(true)+"\n");
         assertTrue(damage >=5 && damage <= 15);
     }
 
     @Test
     void archerLoseHPToZero() {
-        while (archer.getHp() > 1) {
+        while (archer.getHp(true) > 1) {
             warrior.attack(archer);
-            archer.getHp();
+            archer.getHp(true);
             System.out.println();
         }
-        assertTrue(archer.getHp() == 0);
+        assertTrue(archer.getHp(true) == 0);
     }
 
     @Test
     void archerHealsThemselves() {
 
         warrior.attack(archer);
-        int afterDamageHP = archer.getHp();
+        int afterDamageHP = archer.getHp(true);
         System.out.println();
         int heal = archer.heal(5);
 
-        assertTrue(archer.getHp() == afterDamageHP + heal);
+        assertTrue(archer.getHp(true) == afterDamageHP + heal);
 
     }
 }

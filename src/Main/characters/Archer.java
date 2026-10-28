@@ -1,9 +1,9 @@
 package Main.characters;
 
-public class Archer extends Character  {
+public class Archer extends Fighter {
 
 
-    public Archer(int maxHp, int minDamage, int maxDamage) {
+    public Archer() {
         super(100, 5, 15);
     }
 
@@ -18,7 +18,7 @@ public class Archer extends Character  {
     }
 
     @Override
-    public String specialAbility(Character target) {
+    public String specialAbility(Fighter target) {
         int firstHit = attack(target);
         int secondHit = attack(target);
 
