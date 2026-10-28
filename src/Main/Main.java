@@ -1,5 +1,9 @@
 package Main;
 
 public class Main {
-    //Game starts in Game-class
+    public static void main(String[] args) {
+        //Starts to the menu/character selection screen
+
+        //Game-logic starts in Game-class
+    }
 }
