@@ -11,7 +11,7 @@ public class Warrior extends Character {
     }
 
     @Override
-    public void attack() {
+    public void specialAttack() {
     }
 
     @Override

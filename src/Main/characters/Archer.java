@@ -12,7 +12,7 @@ public class Archer extends Character  {
     }
 
     @Override
-    public void attack() {
+    public void specialAttack() {
     }
 
     @Override

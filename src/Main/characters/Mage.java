@@ -12,7 +12,7 @@ public class Mage extends Character {
     }
 
     @Override
-    public void attack() {
+    public void specialAttack() {
     }
 
     @Override
