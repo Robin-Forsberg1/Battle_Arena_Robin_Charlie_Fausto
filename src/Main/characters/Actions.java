@@ -2,5 +2,7 @@ package Main.characters;
 
 public enum Actions {
     ATTACK,
-    SPECIAL
+    HEAL,
+    DEFEND,
+    EXTRA_ATTACK
 }

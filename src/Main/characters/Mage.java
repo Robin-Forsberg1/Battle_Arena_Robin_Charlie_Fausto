@@ -8,8 +8,19 @@ public class Mage extends Character {
     }
 
     @Override
-    public void specialAbility(Character target) {
-        heal(5);
+    public String getName() {
+        return "Mage";
+    }
+
+    @Override
+    public Actions getSpecialAction() {
+        return Actions.HEAL;
+    }
+
+    @Override
+    public String specialAbility(Character target) {
+        int healed = heal(10);
+        return "Mage läker med " + healed + " HP.";
     }
 
 }

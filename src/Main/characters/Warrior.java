@@ -6,11 +6,22 @@ public class Warrior extends Character {
         super(100, 5, 15);
     }
 
-
-    public void specialAbility(Character target) {
-
+    @Override
+    public String getName() {
+        return "Warrior";
     }
 
+    @Override
+    public Actions getSpecialAction() {
+        return Actions.DEFEND;
+    }
+
+    @Override
+    public String specialAbility(Character target) {
+        defend();
+
+        return "Warrior försvarar sig själv och halverar nästa skada";
+    }
 
 
 }
