@@ -8,7 +8,20 @@ public class Archer extends Character  {
     }
 
     @Override
-    public void specialAbility(Character target) {
+    public String getName() {
+        return "Archer";
+    }
 
+    @Override
+    public Actions getSpecialAction() {
+        return Actions.EXTRA_ATTACK;
+    }
+
+    @Override
+    public String specialAbility(Character target) {
+        int firstHit = attack(target);
+        int secondHit = attack(target);
+
+        return "Archer attackerar två gånger och gör " + firstHit + " och " + secondHit + "skada";
     }
 }

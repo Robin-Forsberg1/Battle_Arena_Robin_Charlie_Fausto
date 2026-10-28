@@ -7,10 +7,15 @@ public abstract class Character implements Moves {
     private int hp;
     private final int minDamage;
     private final int maxDamage;
+    private boolean defending;
 
     private final Random random = new Random();
 
     public Character(int maxHp, int minDamage, int maxDamage) {
+        if (maxHp <= 0 || minDamage <= 0 || maxDamage < minDamage) {
+            throw new IllegalArgumentException("Ogiltiga karaktärsvärden");
+        }
+
         this.maxHp = maxHp;
         this.hp = maxHp;
         this.minDamage = minDamage;
@@ -19,25 +24,61 @@ public abstract class Character implements Moves {
 
     public int attack(Character target) {
         int damage = random.nextInt(minDamage, maxDamage + 1);
-        target.takeDamage(damage);
+        int actualDamage = target.takeDamage(damage);
 
         System.out.println(getClass().getSimpleName()
-        + " gör " + damage + " skada ");
-        return damage;
+        + " gör " + actualDamage + " skada ");
+        return actualDamage;
+    }
+
+    public int takeDamage(int damage) {
+        if (damage < 0) {
+            throw new IllegalArgumentException("Skada kan inte vara negativ");
+        }
+
+        if (defending) {
+            damage = (damage + 1) / 2;
+            defending = false;
+        }
+
+        int oldHp = hp;
+        hp = Math.max(0, hp -damage);
+
+        return oldHp - hp;
     }
 
     public int heal (int amount) {
-        hp = Math.min(maxHp, hp + amount);
-        System.out.println(getClass().getSimpleName() + " helar sig själv med "+ amount);
-        return amount;
-    }
+        if (amount < 0) {
+            throw new IllegalArgumentException("Läkningen kan inte vara negativ");
+        }
 
-    public void takeDamage(int damage) {
-        hp = Math.max(0, hp - Math.max(0, damage));
+        int oldHp = hp;
+        hp = Math.min(maxHp, hp + amount);
+        return hp - oldHp;
     }
 
     public int getHp(){
         System.out.println(getClass().getSimpleName()+"s HP: "+hp);
         return hp;
     }
+
+    public void defend() {
+        defending = true;
+    }
+
+    public int getMaxHp() {
+        return maxHp;
+    }
+
+    public boolean isDefending() {
+        return defending;
+    }
+
+    public abstract String getName();
+
+    @Override
+    public abstract Actions getSpecialAction();
+
+    @Override
+    public abstract String specialAbility(Character target);
 }
