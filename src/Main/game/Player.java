@@ -1,33 +1,41 @@
 package Main.game;
-
-import Main.characters.Fighter;
+import Main.characters.*;
 
 public abstract class Player {
     private String myName;
     private Fighter myFighter;
 
-    protected Player(String myName, Fighter myFighter) {
+    protected Player(String myName) {
         this.myName = myName;
-        this.myFighter = myFighter;
     }
 
     protected int getFightersHP(boolean withText) {
         return myFighter.getHp(withText);
     }
-
     protected Fighter getFighter() {
         return myFighter;
     }
 
-    protected void moveList(String choice, Fighter target){
+    protected boolean useMove(String choice, Fighter target){
+        boolean moveFound = true;
         switch (choice){
             case "1": myFighter.attack(target); break;
             case "2": myFighter.heal(10); break;
             case "3": break;
             case "4": break;
-            default: break;
-        }
+            default: moveFound = false; break;
+        } return moveFound;
     }
+
+    protected Fighter fighterList(String choice){
+        myFighter = switch (choice) {
+            case "1" -> new Archer();
+            case "2" -> new Mage();
+            case "3" -> new Warrior();
+            default -> null;
+        }; return myFighter;
+    }
+
 
     protected String getMyName() {
         return myName;

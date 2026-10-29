@@ -3,13 +3,16 @@ import Main.characters.Fighter;
 import java.util.Random;
 
 public class ComputerPlayer extends Player implements Control {
-    public ComputerPlayer(String myName, Fighter myFighter) {
-        super(myName, myFighter);
+    private Random rand = new Random();
+    public ComputerPlayer(String myName) {super(myName);}
+
+    @Override
+    public void selectMove(Fighter target) {
+        useMove(String.valueOf(rand.nextInt(1,3)), target);
     }
 
     @Override
-    public void chooseMove(Fighter target) {
-        Random rand = new Random();
-        moveList(String.valueOf(rand.nextInt(1,3)), target);
+    public void pickFighter() {
+        fighterList(String.valueOf(rand.nextInt(1,4)));
     }
 }

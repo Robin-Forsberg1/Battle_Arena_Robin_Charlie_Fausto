@@ -3,16 +3,24 @@ import Main.characters.Fighter;
 import java.util.Scanner;
 
 public class HumanPlayer extends Player implements Control {
+    private Scanner scan = new Scanner(System.in);
+    public HumanPlayer(String myName) {super(myName);}
 
-
-    public HumanPlayer(String myName, Fighter myFighter) {
-        super(myName, myFighter);
+    @Override
+    public void selectMove(Fighter target) {
+        while (true) {
+            System.out.print("1: Attack | 2: Heal | 3: ... \nVälj nummer: ");
+            if(useMove(scan.nextLine(), target)) break;
+            else System.out.println("Okänd move...\n");
+        }
     }
 
     @Override
-    public void chooseMove(Fighter target) {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("1: Attack | 2: Heal | 3: ... \nVälj: ");
-        moveList(scan.nextLine(), target);
+    public void pickFighter() {
+        while(true){
+            System.out.print("1: Archer | 2: Mage | 3: Warrior\nVälj nummer: ");
+            if (fighterList(scan.nextLine()) != null) break;
+            else System.out.println("Okänd fighter...\n");
+        }
     }
 }
