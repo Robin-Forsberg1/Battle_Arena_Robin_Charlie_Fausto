@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class HumanPlayer extends Player implements Control {
     private Scanner scan = new Scanner(System.in);
+
     public HumanPlayer(String myName) {super(myName);}
 
     @Override

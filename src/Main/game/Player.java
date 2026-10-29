@@ -5,16 +5,13 @@ public abstract class Player {
     private String myName;
     private Fighter myFighter;
 
-    protected Player(String myName) {
-        this.myName = myName;
-    }
+    protected Player(String myName) {this.myName = myName;}
 
     protected int getFightersHP(boolean withText) {
         return myFighter.getHp(withText);
     }
-    protected Fighter getFighter() {
-        return myFighter;
-    }
+    protected Fighter getFighter() {return myFighter;}
+    protected String getMyName() {return myName;}
 
     protected boolean useMove(String choice, Fighter target){
         boolean moveFound = true;
@@ -34,10 +31,5 @@ public abstract class Player {
             case "3" -> new Warrior();
             default -> null;
         }; return myFighter;
-    }
-
-
-    protected String getMyName() {
-        return myName;
     }
 }

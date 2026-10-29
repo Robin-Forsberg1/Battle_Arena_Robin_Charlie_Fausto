@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class ComputerPlayer extends Player implements Control {
     private Random rand = new Random();
+
     public ComputerPlayer(String myName) {super(myName);}
 
     @Override
